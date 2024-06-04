@@ -1,28 +1,37 @@
-import { Link } from "expo-router";
-import { Text, View, StyleSheet } from "react-native";
+import type { CSearch, ZoroResult } from "@/constants/CustomTypes";
+import { topAnime } from "@/constants/Config";
+import { useEffect, useState } from "react";
+import { useTheme } from "react-native-paper";
+import { useFonts, Montserrat_300Light } from "@expo-google-fonts/montserrat";
+
+import { Text, View, StyleSheet, ScrollView } from "react-native";
+
+import { HomeCard } from "@/components/HomeCard";
 
 export default function Index() {
-  return (
-    <View style={styles.container} >
-      <Text>Welcome to expo</Text>
-	  <Text>This is the index page</Text>
-	  <Link style={styles.link} href="/anime">Watch Anime</Link>
-    </View>
-  );
+	// Declare variables
+	const theme = useTheme();
+	useFonts({Montserrat_300Light})
+
+	return (
+		<View style={[ styles.container, {backgroundColor: theme.colors.background } ]}>
+			<HomeCard name="Anime" link="/Anime" intro="More anime than you will ever find" />
+			<HomeCard name="Movie" link="/Movie" intro="One of the largest collection of movies from TMDB" />
+			<HomeCard name="TV" link="/TV" intro="When anime is not enough to satisfy your entertainment needs" />
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
 	container: {
+		display: "flex",
 		flex: 1,
+		flexDirection: "column",
 		justifyContent: "center",
 		alignItems: "center",
-		gap: 20
-	},
-	link: {
-		padding: 20,
-		backgroundColor: "blue",
-		color: "white",
-		borderRadius: 5
+		rowGap: 10,
+		padding: 10,
+		fontFamily: "Montserrat_300Light",
 	}
 })
 
