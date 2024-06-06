@@ -51,7 +51,7 @@ export default function RootLayout() {
 					headerTitleStyle: styles.font,
 				}}/>
 				<Stack.Screen name="Anime/[id]" options={{
-					title: "Info",
+					title: "Watch",
 					headerStyle: {
 						backgroundColor: theme.colors.primary,
 					},

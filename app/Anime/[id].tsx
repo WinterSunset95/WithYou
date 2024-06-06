@@ -132,6 +132,7 @@ const AnimeInfo = () => {
 	const [animeInfo, setAnimeInfo] = useState<GogoAnimeInfo>();
 	const [source, setSource] = useState<string>();
 	const [currEp, setCurrEp] = useState<number>();
+	const [loading, setLoading] = useState<boolean>(false);
 
 	async function getAnimeInfo() {
 		try {
@@ -141,11 +142,9 @@ const AnimeInfo = () => {
 			} else {
 				link = animeDetails(id![0]);
 			}
-			console.log(link)
 			let res = await fetch(link);
 			let json = await res.json();
 			setAnimeInfo(json);
-			console.log(animeInfo?.episodes)
 		} catch (err) {
 			alert("An unknown error occured, restart the app")
 		}
@@ -153,6 +152,7 @@ const AnimeInfo = () => {
 
 	async function getEpisodeDetails(episodeId: string, epNumber: number) {
 		let bakSource = source;
+		setLoading(true);
 		try {
 			setSource(undefined);
 			let link = streamingLinks(episodeId);
@@ -165,6 +165,7 @@ const AnimeInfo = () => {
 					return;
 				}
 			})
+			setLoading(false);
 		} catch (err) {
 			alert("An error occured while fetching episode details")
 			setSource(bakSource);
@@ -189,7 +190,13 @@ const AnimeInfo = () => {
 			<View style={styles.container}>
 
 				<View style={styles.topContainer}>
-					{source ?
+					{loading ?
+
+					<View style={styles.videoContainer}>
+						<Text style={styles.text}>Loading . . .</Text>
+					</View>
+
+					: source ?
 
 					<View style={styles.videoContainer}>
 						<VideoPlayer uri={source} />

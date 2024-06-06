@@ -1,6 +1,8 @@
 export const API_KEY = process.env.TMDB_API_KEY
 
-export const ANIME_API = "https://consumet-api-dgfy.vercel.app/"
+//export const ANIME_API = "http://localhost:5173/api/withyou/"
+//export const ANIME_API = "http://192.168.120.210:5173/api/withyou/"
+export const ANIME_API = "https://svelte-tube.vercel.app/api/withyou/"
 export const MOVIEDB = "https://api.themoviedb.org/3/"
 export const PROXY = "https://api.allorigins.win/get?url="
 
@@ -10,9 +12,9 @@ export const PROXY = "https://api.allorigins.win/get?url="
 //export const streamingLinks = (id: string) => `${ANIME_API}anime/zoro/watch?episodeId=${id}`
 
 export const topAnime = `${ANIME_API}anime/gogoanime/top-airing`
-export const searchAnime = (query: string, page?: number) => `${ANIME_API}anime/gogoanime/${query}?page=${page ? page : 1}`
-export const animeDetails = (id: string) => `${ANIME_API}anime/gogoanime/info/${id}`
-export const streamingLinks = (id: string) => `${ANIME_API}anime/gogoanime/watch/${id}`
+export const searchAnime = (query: string, page?: number) => `${ANIME_API}anime/gogoanime?search=${query}&page=${page ? page : 1}`
+export const animeDetails = (id: string) => `${ANIME_API}anime/gogoanime/info?animeId=${id}`
+export const streamingLinks = (id: string) => `${ANIME_API}anime/gogoanime/watch?episodeId=${id}`
 
 export const popularMovies = `${PROXY}${MOVIEDB}movie/popular?api_key=${API_KEY}`
 export const trendingMovies = `${PROXY}${MOVIEDB}trending/movie/week?api_key=${API_KEY}`

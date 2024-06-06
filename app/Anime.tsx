@@ -27,6 +27,7 @@ export default function Anime() {
 			let data = await res.json();
 			setAnimeResults(data);
 		} catch (err) {
+			alert("An error occured while fetching data");
 			console.log(err);
 		}
 	}
@@ -39,6 +40,7 @@ export default function Anime() {
 			let data = await res.json();
 			setAnimeResults(data);
 		} catch (err) {
+			alert("An error occured while searching");
 			console.log(err);
 		}
 	}
