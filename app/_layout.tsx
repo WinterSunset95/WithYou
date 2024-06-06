@@ -50,6 +50,14 @@ export default function RootLayout() {
 					headerTintColor: "#fff",
 					headerTitleStyle: styles.font,
 				}}/>
+				<Stack.Screen name="Anime/[id]" options={{
+					title: "Info",
+					headerStyle: {
+						backgroundColor: theme.colors.primary,
+					},
+					headerTintColor: "#fff",
+					headerTitleStyle: styles.font,
+				}} />
 			</Stack>
 		</PaperProvider>
 	);

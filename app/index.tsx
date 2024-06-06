@@ -12,26 +12,27 @@ export default function Index() {
 	// Declare variables
 	const theme = useTheme();
 	useFonts({Montserrat_300Light})
+	const styles = StyleSheet.create({
+		container: {
+			display: "flex",
+			flex: 1,
+			flexDirection: "column",
+			justifyContent: "center",
+			alignItems: "center",
+			rowGap: 10,
+			padding: 10,
+			fontFamily: "Montserrat_300Light",
+			backgroundColor: theme.colors.background
+		}
+	})
+
 
 	return (
-		<View style={[ styles.container, {backgroundColor: theme.colors.background } ]}>
+		<View style={[ styles.container ]}>
 			<HomeCard name="Anime" link="/Anime" intro="More anime than you will ever find" />
 			<HomeCard name="Movie" link="/Movie" intro="One of the largest collection of movies from TMDB" />
 			<HomeCard name="TV" link="/TV" intro="When anime is not enough to satisfy your entertainment needs" />
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		display: "flex",
-		flex: 1,
-		flexDirection: "column",
-		justifyContent: "center",
-		alignItems: "center",
-		rowGap: 10,
-		padding: 10,
-		fontFamily: "Montserrat_300Light",
-	}
-})
 

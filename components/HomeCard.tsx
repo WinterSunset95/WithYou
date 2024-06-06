@@ -9,7 +9,6 @@ import { View, Text, StyleSheet } from "react-native"
 import { Button } from "react-native-paper"
 
 export const HomeCard = (props: HomeCardProps) => {
-
 	let theme = useTheme()
 	let [fontsLoaded] = useFonts({ Montserrat_400Regular })
 
@@ -45,5 +44,6 @@ const styles = StyleSheet.create({
 		width: "100%",
 		fontFamily: "Montserrat_400Regular",
 		textAlign: "center",
+		display: "flex",
 	},
 })
